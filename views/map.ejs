@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Campus Event Map</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <link rel="stylesheet" href="map.css" />
+</head>
+<body>
+  <header>
+    <h1>Campus Event Map</h1>
+  </header>
+
+  <div class="btn-bar">
+    <button onclick="jumpTo(28.6139, 77.2090)">Code Fiesta</button>
+    <button onclick="jumpTo(28.6145, 77.2080)">AI Workshop</button>
+    <button onclick="jumpTo(28.6152, 77.2100)">Hackathon</button>
+  </div>
+
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const map = L.map('map').setView([28.6139, 77.2090], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const events = [
+      {
+        name: 'Code Fiesta 2025',
+        lat: 28.6139,
+        lng: 77.2090,
+        desc: '🎉 Coding competition with prizes!'
+      },
+      {
+        name: 'AI & ML Workshop',
+        lat: 28.6145,
+        lng: 77.2080,
+        desc: '🤖 Hands-on workshop on Machine Learning.'
+      },
+      {
+        name: 'Hackathon X',
+        lat: 28.6152,
+        lng: 77.2100,
+        desc: '💡 48-hour innovation challenge for all branches.'
+      }
+    ];
+
+    const markers = {};
+    events.forEach((event) => {
+      const marker = L.marker([event.lat, event.lng])
+        .addTo(map)
+        .bindPopup(`<b>${event.name}</b><br>${event.desc}`);
+      markers[event.name] = marker;
+    });
+
+    window.jumpTo = function (lat, lng) {
+      map.setView([lat, lng], 17, { animate: true });
+    };
+  });
+</script>
+
+</body>
+</html>

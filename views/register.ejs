@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register for Event</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Register for Event</h1>
+        <form action="/register" method="POST" class="form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="college">College Name</label>
+                <input type="text" id="college" name="college" required placeholder="Your college name">
+            </div>
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+                <label for="event">Select Event</label>
+                <select name="event" id="event" required>
+                    <option value="">-- Choose an event --</option>
+                    <option value="Code Fiesta 2025">Code Fiesta 2025</option>
+                    <option value="AI & ML Workshop">AI & ML Workshop</option>
+                    <option value="Hackathon X">Hackathon X</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Submit Registration</button>
+        </form>
+    </div>
+</body>
+</html>

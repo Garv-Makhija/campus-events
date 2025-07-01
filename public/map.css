@@ -1,0 +1,38 @@
+body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+header {
+      background-color: #2ecc71;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+#map {
+      height: 90vh;
+      width: 100%;
+    }
+
+.btn-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: #ecf0f1;
+    }
+
+.btn-bar button {
+      padding: 10px 20px;
+      background-color: #27ae60;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+.btn-bar button:hover {
+      background-color: #219150;
+    }
