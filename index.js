@@ -28,20 +28,21 @@ app.get('/events', async (req, res) => {                   //to fetch all events
 app.get("/register", (req, res) => {                     //to render registration page
     res.render("register.ejs"); 
 });
-app.post("/register", async(req, res) => {
-    let { name, email, password, college } = req.body;          //to get data from registration form
-    let user = new User({                //create new user object
-        name: name,
-        email: email,
-        password: password,
-        college: college
-    });
-    await user.save().then(() => {
-        console.log('User registered successfully');  //log success message
-    }).catch(err => {
-        console.log(err);                             //log error if any
-    });
-    res.redirect('/events');                              //redirect to events page after registration
+app.post("/register", async (req, res) => {
+  console.log("📝 Register form submitted:", req.body);
+
+  try {
+    let { name, email, password, college } = req.body;
+    let user = new User({ name, email, password, college });
+
+    await user.save();  // Wait for DB write
+    console.log("✅ User saved:", user);
+
+    res.redirect('/events');
+  } catch (err) {
+    console.error("❌ Failed to save user:", err);
+    res.status(500).send("Registration failed.");
+  }
 });
 app.get("/mentors", (req, res) => {                     //to render registration page
     res.render("mentor.ejs"); 
