@@ -14,19 +14,14 @@ app.use(methodOverride('_method'));
 const mongoose = require('mongoose');
 require('dotenv').config();
 async function main() {
-  try {
     await mongoose.connect("mongodb+srv://Garv:myMongo123@cluster0.60iu9jd.mongodb.net/CampusEvents?retryWrites=true&w=majority&appName=Cluster0"
 , {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       bufferCommands: false,
     });
-    console.log("✅ Connected to MongoDB");
-  } catch (err) {
-    console.error("❌ MongoDB connection error:", err);
+    console.log( "Connected to MongoDB");
   }
-}
-
 main();
 
 app.get('/', (req, res) => {                            //to render home page
@@ -39,18 +34,12 @@ app.get("/register", (req, res) => {                     //to render registratio
     res.render("register.ejs"); 
 });
 app.post("/register", async (req, res) => {
-  console.log("📝 Register form submitted:", req.body);
-
   try {
     let { name, email, password, college } = req.body;
     let user = new User({ name, email, password, college });
-
-    await user.save();  // Wait for DB write
-    console.log("✅ User saved:", user);
-
+    await user.save();
     res.redirect('/events');
   } catch (err) {
-    console.error("❌ Failed to save user:", err);
     res.status(500).send("Registration failed.");
   }
 });
