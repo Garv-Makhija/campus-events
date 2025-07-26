@@ -25,6 +25,13 @@
                 <label for="password">password</label>
                 <input type="password" id="password" name="password" required placeholder="Enter your password">
             </div>
+            <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedEvent = urlParams.get('event');
+            if (selectedEvent) {
+                document.getElementById("event").value = selectedEvent;
+                }
+</script>
             <div class="form-group">
                 <label for="event">Select Event</label>
                 <select name="event" id="event" required>

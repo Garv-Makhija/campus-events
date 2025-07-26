@@ -5,6 +5,7 @@ const path = require('path');
 const User = require('./models/register'); 
 const axios = require('axios');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use(methodOverride('_method'));
 const mongoose = require('mongoose');
 require('dotenv').config();
 async function main() {
-    await mongoose.connect("mongodb+srv://GarvMakhija:myMongo123@cluster0.oegytkd.mongodb.net/CampusEvents?retryWrites=true&w=majority&appName=Cluster0"
+    await mongoose.connect("mongodb+srv://Garv:garvmakhija12@cluster0.oegytkd.mongodb.net/Users?retryWrites=true&w=majority&appName=Cluster0"
 , {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -30,13 +31,14 @@ app.get('/', (req, res) => {                            //to render home page
 app.get('/events', async (req, res) => {                   //to fetch all events
     res.render('index.ejs'); 
 });
-app.get("/register", (req, res) => {                     //to render registration page
+app.get("/register", (req, res) => {  
+  const event = req.query.event || "";                   //to render registration page
     res.render("register.ejs"); 
 });
 app.post("/register", async (req, res) => {
   try {
-    let { name, email, password, college } = req.body;
-    let user = new User({ name, email, password, college });
+    let { name, email, password, college,event } = req.body;
+    let user = new User({ name, email, password, college,event });
     await user.save();
     res.redirect('/events');
   } catch (err) {

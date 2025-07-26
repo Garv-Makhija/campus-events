@@ -16,6 +16,10 @@ const userSchema=new mongoose.Schema({            //define schema for user
     college:{
         type:String,
         required:true
+    },
+    event:{
+        type:String,
+        required:false
     }
 });
 module.exports=mongoose.model('User',userSchema);  //create model from schema

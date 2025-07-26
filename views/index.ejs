@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Event Registration Platform</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
-    <link rel="stylesheet" href="chatbot.css"/>
-    <script src="/chat.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
+    <button id="voiceBtn"
+  style="position: fixed; bottom: 20px; right: 80px; padding: 12px 20px;
+         border-radius: 50%; background-color: #007bff; color: white;
+         border: none; font-size: 24px; z-index: 9999;">
+  🎤
+</button>
+<p id="transcript" style="position: fixed; bottom: 80px; right: 20px; background: #f1f1f1; padding: 5px 10px; border-radius: 8px;"></p>
     <header>
         <h1>Campus Events</h1>
         <div class="nav-buttons">
@@ -39,8 +43,10 @@
                 </form><br>
                 <form action="/map" method="get">
                     <button>Location</button>
-                </form>
-                </div>
+                </form><br>
+                <button onclick="generateQR('http://localhost:3000/register?event=Code Fiesta', 'qrCode1')">Scan to Register</button>
+                <div id="qrCode1"></div>
+        </div>
 
             <div class="event-card">
                 <h3>AI & ML Workshop</h3>
@@ -50,9 +56,10 @@
                 </form><br>
                 <form action="/map" method="get">
                     <button>Location</button>
-                </form>
-
-            </div>
+                </form><br>
+                <button onclick="generateQR('http://localhost:3000/register?event=AI Workshop', 'qrCode2')">Scan to Register</button>
+                <div id="qrCode2"></div>
+        </div>
 
             <div class="event-card">
                 <h3>Hackathon X</h3>
@@ -62,19 +69,17 @@
                 </form><br>
                 <form action="/map" method="get">
                     <button>Location</button>
-                </form>
-            </div>
-            
+                </form><br>
+                <button onclick="generateQR('http://localhost:3000/register?event=Hackathon X', 'qrCode3')">Scan to Register</button>
+                <div id="qrCode3"></div>
+        </div>
         </section>
     </main>
-    <div id="chatbot">
-        <input id="userMessage" placeholder="Ask..." />
-        <button onclick="sendMessage()">Send</button>
-        <div id="chatReply"></div>
-</div>
-
     <footer>
         <p>&copy; 2025 Campus Event Platform</p>
     </footer>
+    <script src="/voiceAssistant.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="/QRCode.js"></script>
 </body>
 </html>

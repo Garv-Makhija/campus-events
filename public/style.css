@@ -189,3 +189,14 @@ h2{
 .nav-buttons form {
   display: inline;
 }
+.nav-buttons button {
+  background-color: #ffffff; 
+  color: #000; 
+  padding: 10px;
+  border-radius: 5px;
+}
+.calendar-embed {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+}
