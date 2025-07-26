@@ -1,8 +1,5 @@
-function generateQR(url, elementId) {
-  document.getElementById(elementId).innerHTML = ""; 
-  new QRCode(document.getElementById(elementId), {
-    text: url,
-    width: 128,
-    height: 128
-  });
+function generateQRForEvent(eventName) {
+  const baseUrl = "https://campus-events-8vt9.onrender.com/register";
+  const fullUrl = `${baseUrl}?event=${encodeURIComponent(eventName)}`;
+  generateQR(fullUrl, "qrCode1");
 }

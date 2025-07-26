@@ -200,3 +200,40 @@ h2{
     width: 100%;
     max-width: 100%;
 }
+.floating-leaderboard {
+  position: fixed;
+  top: 120px;
+  left: 10px;
+  width: 180px;
+  background-color: #ffffff;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-size: 14px;
+}
+
+.floating-leaderboard h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: #007bff;
+}
+
+.floating-leaderboard ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.floating-leaderboard li {
+  margin-bottom: 6px;
+}
+@media (max-width: 768px) {
+  .floating-leaderboard {
+    display: none;
+  }
+}
+
+
