@@ -15,7 +15,7 @@ app.use(methodOverride('_method'));
 const mongoose = require('mongoose');
 require('dotenv').config();
 async function main() {
-    await mongoose.connect("mongodb+srv://Garv:garvmakhija12@cluster0.oegytkd.mongodb.net/users?retryWrites=true&w=majority&appName=Cluster0"
+    await mongoose.connect("mongodb+srv://Garv:garvmakhija12@cluster0.oegytkd.mongodb.net/Users?retryWrites=true&w=majority&appName=Cluster0"
 , {
       useNewUrlParser: true,
       useUnifiedTopology: true,
